@@ -1,8 +1,8 @@
 package com.github.programmerr47.flickrawesomeclient.util.sugar
 
-import android.support.v4.view.ViewPager
+import androidx.viewpager.widget.ViewPager
 
-class SimplePageChangeListener : ViewPager.OnPageChangeListener {
+class SimplePageChangeListener : androidx.viewpager.widget.ViewPager.OnPageChangeListener {
     private var scrolled: (Int, Float, Int) -> Unit = { _, _, _ -> }
     private var selected: (Int) -> Unit = {}
     private var scrollState: (Int) -> Unit = {}

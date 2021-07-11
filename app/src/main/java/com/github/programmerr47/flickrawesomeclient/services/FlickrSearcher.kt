@@ -1,7 +1,7 @@
 package com.github.programmerr47.flickrawesomeclient.services
 
-import android.arch.paging.PagedList
-import android.support.v4.util.LruCache
+import androidx.paging.PagedList
+import androidx.collection.LruCache
 import com.github.programmerr47.flickrawesomeclient.models.Photo
 import com.github.programmerr47.flickrawesomeclient.net.FlickrApi
 import io.reactivex.Scheduler
@@ -16,7 +16,11 @@ class FlickrSearcher(
         private val backgroundScheduler: Scheduler,
         private val foregroundExecutor: Executor
 ) {
-    private val cache: LruCache<String, PagedList<Photo>> by lazy { LruCache<String, PagedList<Photo>>(10) }
+    private val cache: androidx.collection.LruCache<String, PagedList<Photo>> by lazy {
+        androidx.collection.LruCache<String, PagedList<Photo>>(
+            10
+        )
+    }
 
 
     fun searchPhotos(text: String) = createDefered {
@@ -39,7 +43,7 @@ class FlickrSearcher(
     private fun createDefered(supplier: () -> SingleSource<PagedList<Photo>>) =
             Single.defer(supplier).subscribeOn(backgroundScheduler)
 
-    private operator fun <K, V> LruCache<K, V>.contains(key: K) = get(key) != null
-    private operator fun <K, V> LruCache<K, V>.set(key: K, value: V) = put(key, value)
+    private operator fun <K, V> androidx.collection.LruCache<K, V>.contains(key: K) = get(key) != null
+    private operator fun <K, V> androidx.collection.LruCache<K, V>.set(key: K, value: V) = put(key, value)
 }
 

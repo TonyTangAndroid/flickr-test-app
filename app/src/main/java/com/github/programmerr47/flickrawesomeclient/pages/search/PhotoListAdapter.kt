@@ -1,8 +1,8 @@
 package com.github.programmerr47.flickrawesomeclient.pages.search
 
-import android.arch.paging.PagedListAdapter
+import androidx.paging.PagedListAdapter
 import android.content.Context
-import android.support.v7.util.DiffUtil
+import androidx.recyclerview.widget.DiffUtil
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView

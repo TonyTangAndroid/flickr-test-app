@@ -1,17 +1,17 @@
 package com.github.programmerr47.flickrawesomeclient.pages.search
 
-import android.arch.lifecycle.ViewModelProviders
-import android.arch.paging.PagedList
+import androidx.lifecycle.ViewModelProviders
+import androidx.paging.PagedList
 import android.os.Bundle
-import android.support.design.widget.AppBarLayout
-import android.support.design.widget.Snackbar
-import android.support.design.widget.Snackbar.LENGTH_INDEFINITE
-import android.support.v4.app.Fragment
-import android.support.v4.widget.SwipeRefreshLayout
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.Toolbar
+import com.google.android.material.appbar.AppBarLayout
+import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.snackbar.Snackbar.LENGTH_INDEFINITE
+import androidx.fragment.app.Fragment
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.appcompat.widget.Toolbar
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -31,7 +31,7 @@ import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers.mainThread
 import io.reactivex.disposables.Disposable
 
-class SearchPhotoFragment : Fragment(), SupportFragmentInjector {
+class SearchPhotoFragment : androidx.fragment.app.Fragment(), SupportFragmentInjector {
     override val injector: KodeinInjector = KodeinInjector()
     override fun provideOverridingModule() = Kodein.Module {
         bind<SearchViewModel>() with provider {
@@ -51,7 +51,7 @@ class SearchPhotoFragment : Fragment(), SupportFragmentInjector {
 
     private var searchView: AutoCompleteTextView? = null
     private var listAdapter: PhotoListAdapter? = null
-    private var swipeProgressView: SwipeRefreshLayout? = null
+    private var swipeProgressView: androidx.swiperefreshlayout.widget.SwipeRefreshLayout? = null
 
     private var recentsDisposable: Disposable? = null
 
@@ -73,7 +73,7 @@ class SearchPhotoFragment : Fragment(), SupportFragmentInjector {
             initList(findViewById(R.id.rv_list))
 
             searchView = initSearchView(findViewById(R.id.actv_search))
-            swipeProgressView = findViewById<SwipeRefreshLayout>(R.id.srl_refresh).apply {
+            swipeProgressView = findViewById<androidx.swiperefreshlayout.widget.SwipeRefreshLayout>(R.id.srl_refresh).apply {
                 setOnRefreshListener { refreshSearch() }
             }
         }
@@ -127,11 +127,12 @@ class SearchPhotoFragment : Fragment(), SupportFragmentInjector {
         if (searchViewModel.searchText.isEmpty()) showKeyboard()
     }
 
-    private fun initList(recyclerView: RecyclerView) = recyclerView.apply {
+    private fun initList(recyclerView: androidx.recyclerview.widget.RecyclerView) = recyclerView.apply {
         val spanCount = context.resources.getInteger(R.integer.page_search_column_count)
         val gridPadding = context.resources.getDimensionPixelSize(R.dimen.padding_small)
 
-        layoutManager = GridLayoutManager(context, spanCount)
+        layoutManager =
+            androidx.recyclerview.widget.GridLayoutManager(context, spanCount)
         addItemDecoration(GridSpacingItemDecoration(spanCount, gridPadding))
         adapter = PhotoListAdapter({ context, pos ->
             GalleryActivity.open(context, searchViewModel.searchText, pos)

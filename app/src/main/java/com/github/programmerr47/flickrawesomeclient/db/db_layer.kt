@@ -1,7 +1,7 @@
 package com.github.programmerr47.flickrawesomeclient.db
 
-import android.arch.persistence.room.*
-import android.arch.persistence.room.OnConflictStrategy.REPLACE
+import androidx.room.*
+import androidx.room.OnConflictStrategy.REPLACE
 import io.reactivex.Single
 
 /**

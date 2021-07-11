@@ -1,6 +1,6 @@
 package com.github.programmerr47.flickrawesomeclient.widgets.lists
 
-import android.support.v7.util.DiffUtil
+import androidx.recyclerview.widget.DiffUtil
 
 typealias DiffCallbackFactory<T> = (List<T>, List<T>) -> DiffUtil.Callback
 

@@ -1,11 +1,11 @@
 package com.github.programmerr47.flickrawesomeclient.widgets.paging
 
 import android.content.Context
-import android.support.v4.view.ViewPager
+import androidx.viewpager.widget.ViewPager
 import android.util.AttributeSet
 import android.view.MotionEvent
 
-class HackyViewPager(context: Context, attributeSet: AttributeSet?) : ViewPager(context, attributeSet) {
+class HackyViewPager(context: Context, attributeSet: AttributeSet?) : androidx.viewpager.widget.ViewPager(context, attributeSet) {
 
     constructor(context: Context) : this(context, null)
 

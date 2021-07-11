@@ -3,9 +3,9 @@ package com.github.programmerr47.flickrawesomeclient.util
 import android.content.Context
 import android.content.Intent
 import android.net.ConnectivityManager
-import android.support.annotation.DrawableRes
-import android.support.annotation.StringRes
-import android.support.v7.content.res.AppCompatResources
+import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
+import androidx.appcompat.content.res.AppCompatResources
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import kotlin.reflect.KClass

@@ -1,9 +1,9 @@
 package com.github.programmerr47.flickrawesomeclient.widgets
 
 import android.content.Context
-import android.support.v4.view.ViewCompat
-import android.support.v4.widget.ViewDragHelper
-import android.support.v4.widget.ViewDragHelper.*
+import androidx.core.view.ViewCompat
+import androidx.customview.widget.ViewDragHelper
+import androidx.customview.widget.ViewDragHelper.*
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
@@ -33,12 +33,12 @@ class FlingLayout @JvmOverloads constructor(
     var needToInvokeDismissListener: Boolean = false
 
     private val threshold = 3000
-    private var dragHelper: ViewDragHelper? = null
+    private var dragHelper: androidx.customview.widget.ViewDragHelper? = null
     private var defaultChildX: Int? = null
     private var defaultChildY: Int? = null
 
     init {
-        dragHelper = create(this, 1f, object: ViewDragHelper.Callback() {
+        dragHelper = create(this, 1f, object: androidx.customview.widget.ViewDragHelper.Callback() {
             override fun tryCaptureView(child: View, pointerId: Int) = isDragEnabled && child.visible
 
             override fun getViewVerticalDragRange(child: View) = 1

@@ -1,6 +1,6 @@
 package com.github.programmerr47.flickrawesomeclient.services
 
-import android.arch.paging.PageKeyedDataSource
+import androidx.paging.PageKeyedDataSource
 import com.github.programmerr47.flickrawesomeclient.models.Photo
 import com.github.programmerr47.flickrawesomeclient.net.FlickrApi
 

@@ -1,15 +1,15 @@
 package com.github.programmerr47.flickrawesomeclient.pages.gallery
 
-import android.arch.lifecycle.ViewModel
-import android.arch.lifecycle.ViewModelProvider
-import android.arch.lifecycle.ViewModelProviders
-import android.arch.paging.PagedList
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
+import androidx.paging.PagedList
 import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
-import android.support.v4.view.ViewPager
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.Toolbar
+import androidx.viewpager.widget.ViewPager
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import android.view.MenuItem
 import android.view.View
 import com.github.chrisbanes.photoview.OnViewTapListener
@@ -44,7 +44,7 @@ class GalleryActivity : AppCompatActivity(), AppCompatActivityInjector {
 
     private val toolbar: Toolbar by bindable(R.id.toolbar)
     private val rootView: View by bindable(R.id.fl_root)
-    private val viewPager: ViewPager by bindable(R.id.vp_list)
+    private val viewPager: androidx.viewpager.widget.ViewPager by bindable(R.id.vp_list)
     private var adapter: FullSizePhotoAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -92,7 +92,7 @@ class GalleryActivity : AppCompatActivity(), AppCompatActivityInjector {
         supportActionBar?.setHomeAsUpIndicator(getDrawableCompat(R.drawable.ic_toolbar_back))
     }
 
-    private fun initViewPager(viewPager: ViewPager, photos: PagedList<Photo>, position: Int) = viewPager.run {
+    private fun initViewPager(viewPager: androidx.viewpager.widget.ViewPager, photos: PagedList<Photo>, position: Int) = viewPager.run {
         adapter = FullSizePhotoAdapter(
                 OnViewTapListener { _, _, _ ->
                     systemUiSwitch.run { isUiVisible = !isUiVisible }

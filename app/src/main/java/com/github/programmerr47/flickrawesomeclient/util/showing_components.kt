@@ -2,17 +2,17 @@ package com.github.programmerr47.flickrawesomeclient.util
 
 import android.app.Activity
 import android.content.Context
-import android.support.annotation.IdRes
-import android.support.annotation.StringRes
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentTransaction
+import androidx.annotation.IdRes
+import androidx.annotation.StringRes
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import android.view.View
 
-fun FragmentManager.commitTransaction(block: FragmentTransaction.() -> Unit) =
+fun androidx.fragment.app.FragmentManager.commitTransaction(block: androidx.fragment.app.FragmentTransaction.() -> Unit) =
         beginTransaction().apply(block).commit()
 
-fun Fragment.hideKeyboard() = activity?.hideKeyboard()
+fun androidx.fragment.app.Fragment.hideKeyboard() = activity?.hideKeyboard()
 
 fun Activity.hideKeyboard() {
     currentFocus?.run {

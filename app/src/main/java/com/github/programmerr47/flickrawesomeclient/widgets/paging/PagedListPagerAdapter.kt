@@ -1,13 +1,13 @@
 package com.github.programmerr47.flickrawesomeclient.widgets.paging
 
-import android.arch.paging.PagedList
-import android.support.v4.view.PagerAdapter
+import androidx.paging.PagedList
+import androidx.viewpager.widget.PagerAdapter
 import android.view.View
 import android.view.ViewGroup
 import java.util.SortedSet
 import java.util.TreeSet
 
-abstract class PagedListPagerAdapter<T> : PagerAdapter() {
+abstract class PagedListPagerAdapter<T> : androidx.viewpager.widget.PagerAdapter() {
     var pagedList: PagedList<T>? = null
         private set
     private var callback = PagerCallback()

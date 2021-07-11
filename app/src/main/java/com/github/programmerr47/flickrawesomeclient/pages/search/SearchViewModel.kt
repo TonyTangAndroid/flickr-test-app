@@ -1,7 +1,7 @@
 package com.github.programmerr47.flickrawesomeclient.pages.search
 
-import android.arch.lifecycle.ViewModel
-import android.arch.paging.PagedList
+import androidx.lifecycle.ViewModel
+import androidx.paging.PagedList
 import com.github.programmerr47.flickrawesomeclient.models.Photo
 import com.github.programmerr47.flickrawesomeclient.models.PhotoList
 

@@ -1,8 +1,8 @@
 package com.github.programmerr47.flickrawesomeclient
 
 import android.app.Application
-import android.arch.paging.PagedList
-import android.arch.persistence.room.Room
+import androidx.paging.PagedList
+import androidx.room.Room
 import android.content.Context
 import android.os.Handler
 import android.os.Looper
