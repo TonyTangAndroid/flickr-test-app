@@ -16,8 +16,8 @@ fun androidx.fragment.app.Fragment.hideKeyboard() = activity?.hideKeyboard()
 
 fun Activity.hideKeyboard() {
     currentFocus?.run {
-        inputMethodManager.hideSoftInputFromWindow(currentFocus.windowToken, 0)
-        currentFocus.clearFocus()
+        inputMethodManager.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
+        currentFocus?.clearFocus()
     }
 }
 

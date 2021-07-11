@@ -30,8 +30,8 @@ class GalleryActivity : AppCompatActivity(), AppCompatActivityInjector {
                     object : ViewModelProvider.Factory {
                         override fun <T : ViewModel> create(modelClass: Class<T>): T {
                             return GalleryViewModel().apply {
-                                searchText = intent.extras.getString(EXTRA_SEARCH_QUERY)
-                                currentPosition = intent.extras.getInt(EXTRA_POSITION)
+                                searchText = intent.extras!!.getString(EXTRA_SEARCH_QUERY)!!
+                                currentPosition = intent.extras!!.getInt(EXTRA_POSITION)
                             } as T
                         }
                     })[GalleryViewModel::class.java]
@@ -78,7 +78,7 @@ class GalleryActivity : AppCompatActivity(), AppCompatActivityInjector {
         super.onDestroy()
     }
 
-    override fun onOptionsItemSelected(item: MenuItem?) = when (item?.itemId) {
+    override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
         android.R.id.home -> {
             onBackPressed()
             true
